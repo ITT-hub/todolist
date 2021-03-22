@@ -1,0 +1,32 @@
+{% extends "base.twig" %}
+
+{% block title %}Авторизация{% endblock %}
+{% block head %}
+    {{ parent() }}
+    <style>
+        .login-form {
+            display: block;
+            width: 360px;
+            margin: 10px auto;
+        }
+    </style>
+{% endblock %}
+{% block content %}
+    <div class="col-sm-12">
+        <div class="login-form">
+            <h4>Войти или <a href="/register">зарегестрироваться</a></h4>
+            <form method="post">
+                <div class="mb-3">
+                    <label for="InputEmail1" class="form-label">Email</label>
+                    <input name="email" type="email" class="form-control" id="InputEmail1" aria-describedby="emailHelp">
+                    <div id="emailHelp" class="form-text">Введите адрес электронной почты.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="InputPassword1" class="form-label">Password</label>
+                    <input name="password" type="password" class="form-control" id="InputPassword1">
+                </div>
+                <button type="submit" class="btn btn-primary">Войти</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

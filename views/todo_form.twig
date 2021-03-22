@@ -1,0 +1,31 @@
+{% extends "base.twig" %}
+
+{% block title %}{{ title }}{% endblock %}
+{% block head %}
+    {{ parent() }}
+{% endblock %}
+{% block content %}
+    <div class="col-sm-12">
+        <div class="login-form">
+            <h4>{{ title }}</h4>
+            <form method="post">
+                <input type="hidden" name="id" value="{{ id }}" />
+                <input type="hidden" name="uid" value="{{ uid }}" />
+                <div class="mb-3">
+                    <label for="InputTitle" class="form-label">Title</label>
+                    <input name="title" type="text" class="form-control" id="InputTitle" aria-describedby="titleHelp" value="{{ task }}">
+                    <div id="titleHelp" class="form-text">Введите заголовок.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="InputDesc" class="form-label">Description</label>
+                    <textarea name="desc" class="form-control" id="InputDesc" rows="3">{{ task_desc }}</textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="InputDate" class="form-label">Date</label>
+                    <input type="date" class="form-control" id="InputDate" name="date" required value="{{ time_date }}">
+                </div>
+                <button type="submit" class="btn btn-primary">Отправить</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,24 @@
+{
+  "name": "it-tech/todolist",
+  "description": "Список задач",
+  "minimum-stability": "dev",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "ITTechnology",
+      "email": "ittechnology03@gmail.com"
+    }
+  ],
+  "require": {
+    "illuminate/database": "v8.33.1",
+    "illuminate/session": "v8.33.1",
+    "vlucas/phpdotenv": "v5.1.0",
+    "twig/twig": "v3.3.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "ITTech\\Models\\": "models/",
+      "ITTech\\Controllers\\": "controllers/"
+    }
+  }
+}

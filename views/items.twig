@@ -1,0 +1,73 @@
+{% extends "base.twig" %}
+
+{% block title %}{{ title }}{% endblock %}
+{% block head %}
+    {{ parent() }}
+{% endblock %}
+{% block content %}
+    <div class="col-sm-12 col-lg-3"></div>
+    <div class="col-sm-12 col-lg-6">
+        <h3 class="text-center">{{ title }}</h3>
+        <a class="btn btn-primary" href="/create">Добавить задачу</a>
+        <hr />
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                  <th scope="col">ID</th>
+                  <th scope="col">Задача</th>
+                  <th scope="col">Дата</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in content %}
+                    <tr>
+                        <td><a href="/create?id={{ item.id }}">{{ item.id }}</a></td>
+                        <td><a href="/create?id={{ item.id }}">{{ item.task }}</a></td>
+                        <td><a href="/create?id={{ item.id }}">{{ item.time_date }}</a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+            
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                <li class="page-item" id="laquo">
+                    <a class="page-link" id="laquoLinc" href="#"><span aria-hidden="true">&laquo;</span></a>
+                </li>
+                {% for item in 0..pages %}
+                {% if item != 0 %}
+                    <li class="page-item" source="{{ item }}">
+                        <a class="page-link" href="?id={{ item }}">{{ item }}</a>
+                    </li>
+                {% endif %}
+                {% endfor %}
+                <li class="page-item" id="raquo">
+                    <a class="page-link" id="raquoLinc" href="#"><span aria-hidden="true">&raquo;</span></a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <div class="col-sm-12 col-lg-3">
+        
+    </div>
+    <script>
+        $(document).ready(function(){
+            let page = window.location.search.replace( '?id=', '');
+            let prev = Number(page)-1;
+            let next = Number(page)+1;
+
+            $("#laquoLinc").attr("href", "?id="+prev);
+            $("#raquoLinc").attr("href", "?id="+next);
+            if(page < 2) {
+                $("#laquo").addClass("disabled");
+                $("[source=1]").addClass("active");
+            }
+            if(page == {{ pages }}) {
+                $("#raquo").addClass("disabled");
+            }
+
+            $("[source="+page+"]").addClass("active");
+        });
+    </script>
+{% endblock %}
+

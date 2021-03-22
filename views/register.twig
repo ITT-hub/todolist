@@ -1,0 +1,47 @@
+{% extends "base.twig" %}
+
+{% block title %}Регистрация{% endblock %}
+{% block head %}
+    {{ parent() }}
+    <style>
+        .login-form {
+            display: block;
+            width: 360px;
+            margin: 10px auto;
+        }
+    </style>
+{% endblock %}
+{% block content %}
+    <div class="col-sm-12">
+        <div class="login-form">
+            <h4>Заполните все поля</h4>
+            <form method="post">
+                <div class="mb-3">
+                    <label for="InputLogin" class="form-label">Login</label>
+                    <input name="login" type="text" class="form-control" id="InputLogin" aria-describedby="loginHelp">
+                    <div id="loginHelp" class="form-text">Введите логин пользователя.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="InputEmail1" class="form-label">Email</label>
+                    <input name="email" type="email" class="form-control" id="InputEmail1" aria-describedby="emailHelp">
+                    <div id="emailHelp" class="form-text">Введите адрес электронной почты.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="InputLast" class="form-label">Last Name</label>
+                    <input name="last_name" type="text" class="form-control" id="InputLast" aria-describedby="LastHelp">
+                    <div id="LastHelp" class="form-text">Введите ваше имя.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="InputFirst" class="form-label">First Name</label>
+                    <input name="first_name" type="text" class="form-control" id="InputFirst" aria-describedby="FirstHelp">
+                    <div id="FirstHelp" class="form-text">Введите вашу фамилию.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="InputPassword1" class="form-label">Password</label>
+                    <input name="password" type="password" class="form-control" id="InputPassword1">
+                </div>
+                <button type="submit" class="btn btn-primary">Регистрация</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

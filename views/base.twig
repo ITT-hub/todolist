@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% block head %}
+            <link rel="stylesheet" href="views/css/bootstrap.min.css"/>
+            
+            <script src="views/js/jquery-3.6.0.min.js"></script>
+            <script src="views/js/popper.min.js"></script>
+            <script src="views/js/bootstrap.min.js"></script>
+            <title>{% block title %}{% endblock %} - Задачник со списком дел</title>
+        {% endblock %}
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                {% block content %}{% endblock %}
+            </div>
+        </div>
+    </body>
+</html>
